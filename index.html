@@ -9,13 +9,22 @@
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.5.0/addons/p5.sound.min.js"></script> -->
 </head>
 <body>
-   <script src="./difficulty.js"></script>
+   <script src="./assets/javascript/difficulty.js"></script>
+   <script src="./assets/javascript/rounding.js"></script>
    <noscript>PLEASE ACTIVATE JS</noscript> 
    <script src="./sketch.js" defer></script>
+   <script src="./konami.js" defer></script>
    <p style="position: absolute;
    bottom: 0;">This game isnt finished</p>
    <p style="position: absolute; bottom: 0; right: 27px;">Select Dificulty from 15 to 30</p>
    <input type="value" style="position: absolute; bottom: 0; right: 30px;" id="lol">
+   <div style="
+   position: absolute; right: 30;">
+        <p id="x_b">The X is <span id="x_text"></span></p>
+        <p id="y_b">The Y is <span id="y_text"></span></p>
+        <p id="e_b">The enemy array lenght is <span id="idkwhatthisis"></span></p>
+        <p id="p_b">Playing? <span id="p_text"></span></p>
+   </div>
 
 </body>
 </html>

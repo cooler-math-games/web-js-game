@@ -7,8 +7,10 @@ let big_square_enemy = 25
 let playing = false;
 let myFont;
 let pleaseonlydothisonce = false;
+let d_stats = false;
+let die = true
 function preload() {
-    myFont = loadFont('./assets/Inconsolata-SemiBold.ttf');
+    myFont = loadFont('./assets/font/Inconsolata-SemiBold.ttf');
   }
 function setup() {
     createCanvas(canvas, canvas);
@@ -29,8 +31,8 @@ function draw() {
         background(155);
         if(pleaseonlydothisonce == false){
             currentsquare = []
-            x_player = canvas/2-(big/2);
-            y_player = canvas - big / 2;
+            x_player = round(canvas/2-(big/2));
+            y_player = round(canvas - big / 2);
             pleaseonlydothisonce = true
         }
        
@@ -52,9 +54,30 @@ function draw() {
         textFont(myFont);
         text('Click "Enter" to start playing', 0, canvas / 2);
         pleaseonlydothisonce = false
+        currentsquare = []
         
     }
-   
+    if(d_stats == true){
+        document.getElementById("x_b").innerHTML = 'The X is <span id="x_text"></span>'
+        document.getElementById("y_b").innerHTML = 'The Y is <span id="y_text"></span>'
+        document.getElementById("e_b").innerHTML = 'The enemy array lenght is <span id="idkwhatthisis"></span>'
+        document.getElementById("p_b").innerHTML = 'Playing? <span id="p_text"></span>'
+
+        document.getElementById("x_text").innerHTML = x_player
+        document.getElementById("y_text").innerHTML = y_player
+        document.getElementById("idkwhatthisis").innerHTML = currentsquare.length
+        document.getElementById("p_text").innerHTML = playing
+    }else{
+        // document.getElementById("x_text").innerHTML = ""
+        // document.getElementById("y_text").innerHTML = ""
+        // document.getElementById("idkwhatthisis").innerHTML = ""
+        // document.getElementById("p_text").innerHTML = ""
+        
+        document.getElementById("x_b").innerHTML = ""
+        document.getElementById("y_b").innerHTML = ""
+        document.getElementById("e_b").innerHTML = ""
+        document.getElementById("p_b").innerHTML = ""
+    }
     
 }
 function keyPressed() {
@@ -136,6 +159,7 @@ class Square {
         y_player > this.y - big_square_enemy / 2 &&
         y_player < this.y + big_square_enemy / 2){
             console.log("bruh lol")
+            if(die == false)return;
             playing = false
         }
     }
